@@ -49,8 +49,8 @@ export const CATALOG = [
     accent: '#EC4899',
     bg: '#FDF2F8',
     items: [
-      { id: 'playeras',  name: 'Playeras',  image: '/images/Bordado/Uniforme_bordado.webp' },
-      { id: 'gorras',    name: 'Gorras',    image: '/images/Bordado/Uniforme_bordado.webp' },
+      { id: 'playeras',  name: 'Playeras',  image: '/images/Bordado/Playeras_Bordado.webp' },
+      { id: 'gorras',    name: 'Gorras',    image: '/images/Bordado/Gorra_Bordado.webp' },
       { id: 'mochilas',  name: 'Mochilas',  image: '/images/Bordado/Bolsas_bordado.webp' },
       { id: 'uniformes', name: 'Uniformes', image: '/images/Bordado/Uniforme_bordado.webp' },
       { id: 'camisas',   name: 'Camisas',   image: '/images/Bordado/Camisas_bordado.webp' },
