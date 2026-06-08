@@ -49,17 +49,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="mb-5">
-              <div
-                className="inline-flex items-center px-3 py-2 rounded-xl"
-                style={{ background: 'rgba(255,255,255,0.96)' }}
-              >
-                <img
-                  src="/images/Front_Page/Logo_frontpage.webp"
-                  alt="Promueve tu Negocio"
-                  className="object-contain"
-                  style={{ height: '36px', width: 'auto', maxWidth: '150px' }}
-                />
-              </div>
+              <img
+                src="/images/Front_Page/Logo_frontpage.webp"
+                alt="Promueve tu Negocio"
+                className="object-contain"
+                style={{ height: '44px', width: 'auto', maxWidth: '180px', mixBlendMode: 'screen' }}
+              />
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.4)' }}>
               Artículos promocionales y publicidad exterior en Hermosillo, Sonora.
