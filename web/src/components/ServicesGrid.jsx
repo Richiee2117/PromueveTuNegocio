@@ -140,31 +140,33 @@ function ServiceCard({ service, index, onOpen, onInfo }) {
         e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.04)'
       }}
     >
-      <span
-        role="button"
-        tabIndex={0}
-        onClick={(e) => { e.stopPropagation(); onInfo(service) }}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault()
-            e.stopPropagation()
-            onInfo(service)
-          }
-        }}
-        className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-150 z-10"
-        style={{ background: 'rgba(255,255,255,0.6)', color: service.accent }}
-        onMouseEnter={e => e.currentTarget.style.background = '#fff'}
-        onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.6)'}
-        aria-label={`Más información sobre ${service.title}`}
-      >
-        <Info size={16} strokeWidth={2} />
-      </span>
-
       <div
-        className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+        className="relative w-11 h-11 rounded-xl flex items-center justify-center mb-5"
         style={{ background: service.accent + '18' }}
       >
         <Icon size={20} style={{ color: service.accent }} strokeWidth={1.75} />
+
+        <span
+          role="button"
+          tabIndex={0}
+          onClick={(e) => { e.stopPropagation(); onInfo(service) }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              e.stopPropagation()
+              onInfo(service)
+            }
+          }}
+          className="absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center transition-all duration-150 z-10"
+          style={{ background: '#fff', color: service.accent, boxShadow: '0 2px 6px rgba(0,0,0,0.12)', border: `1px solid ${service.accent}33` }}
+          onMouseEnter={e => { e.currentTarget.style.background = service.accent; e.currentTarget.style.color = '#fff' }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = service.accent }}
+          onFocus={e => { e.currentTarget.style.background = service.accent; e.currentTarget.style.color = '#fff' }}
+          onBlur={e => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = service.accent }}
+          aria-label={`Más información sobre ${service.title}`}
+        >
+          <Info size={13} strokeWidth={2.25} />
+        </span>
       </div>
 
       <h3
