@@ -7,7 +7,9 @@ function CategoryChip({ category, index }) {
     <div
       className="flex items-center gap-3 rounded-2xl px-4 py-3"
       style={{
-        background: 'rgba(255,255,255,0.06)',
+        background: 'rgba(15,14,23,0.45)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
         border: `1px solid ${category.accent}30`,
         animationDelay: `${index * 60}ms`,
       }}
@@ -28,7 +30,7 @@ function CategoryChip({ category, index }) {
         >
           {category.title}
         </p>
-        <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.4)' }}>
+        <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.65)' }}>
           {category.items.length} artículos
         </p>
       </div>
@@ -222,7 +224,9 @@ export default function Hero() {
                   key={s.label}
                   className="rounded-2xl px-4 py-3"
                   style={{
-                    background: 'rgba(255,255,255,0.05)',
+                    background: 'rgba(15,14,23,0.45)',
+                    backdropFilter: 'blur(8px)',
+                    WebkitBackdropFilter: 'blur(8px)',
                     border: '1px solid rgba(255,255,255,0.08)',
                   }}
                 >
@@ -232,7 +236,7 @@ export default function Hero() {
                   >
                     {s.value}
                   </p>
-                  <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                  <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.65)' }}>
                     {s.label}
                   </p>
                 </div>

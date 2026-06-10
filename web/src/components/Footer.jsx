@@ -153,9 +153,17 @@ export default function Footer() {
             <ul className="flex flex-col gap-4 mb-7">
               <li className="flex gap-3 items-start">
                 <MapPin size={15} className="mt-0.5 shrink-0" style={{ color: 'var(--color-brand)' }} />
-                <span className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                <a
+                  href="https://maps.app.goo.gl/i4s44fKAo2QuKb9t7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm leading-relaxed transition-colors duration-150"
+                  style={{ color: 'rgba(255,255,255,0.5)' }}
+                  onMouseEnter={e => e.currentTarget.style.color = 'var(--color-brand)'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
+                >
                   Hermosillo, Sonora, México
-                </span>
+                </a>
               </li>
               <li className="flex gap-3 items-start">
                 <Phone size={15} className="mt-0.5 shrink-0" style={{ color: 'var(--color-brand)' }} />
