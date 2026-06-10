@@ -53,7 +53,7 @@ export default function Hero() {
           backgroundImage: "url('/images/Front_Page/Imagen_fondo_frontpage.webp')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          filter: 'blur(32px)',
+          filter: 'blur(20px)',
           transform: 'scale(1.15)',
           opacity: 0.65,
         }}
