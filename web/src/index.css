@@ -41,7 +41,7 @@
     font-size: 1rem;
     line-height: 1.65;
     color: var(--color-ink-2);
-    background: var(--color-canvas);
+    background: #0F0E17;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;

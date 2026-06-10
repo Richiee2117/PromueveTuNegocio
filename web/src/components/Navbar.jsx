@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ShoppingBag, X, Menu } from 'lucide-react'
+import { ShoppingBag, X, Menu, MapPin } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 
 const NAV_LINKS = [
@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <>
       <div
-        className="sticky top-3 z-50 px-4"
+        className="fixed top-3 left-0 right-0 z-50 px-4"
         style={{ fontFamily: 'var(--font-sans)' }}
       >
         <nav
@@ -72,6 +72,26 @@ export default function Navbar() {
 
           {/* Right — CTA + hamburger */}
           <div className="flex items-center gap-2">
+            <a
+              href="https://maps.app.goo.gl/i4s44fKAo2QuKb9t7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-9 h-9 rounded-full transition-colors duration-200 shrink-0"
+              style={{ color: 'var(--color-ink-2)' }}
+              onMouseEnter={e => {
+                e.currentTarget.style.color = 'var(--color-brand)'
+                e.currentTarget.style.background = 'rgba(0,0,0,0.04)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.color = 'var(--color-ink-2)'
+                e.currentTarget.style.background = 'transparent'
+              }}
+              aria-label="Ver ubicación en Google Maps"
+              title="Ver ubicación en Google Maps"
+            >
+              <MapPin size={17} />
+            </a>
+
             <button
               onClick={() => setIsOpen(true)}
               className="relative flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full text-white transition-all duration-200 active:scale-[0.97]"

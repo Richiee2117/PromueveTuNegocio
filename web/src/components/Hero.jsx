@@ -54,7 +54,7 @@ export default function Hero() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'blur(20px)',
-          transform: 'scale(1.15)',
+          transform: 'scale(1.35)',
           opacity: 0.65,
         }}
       />
