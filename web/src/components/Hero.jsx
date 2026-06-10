@@ -46,6 +46,27 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ minHeight: '100dvh', background: '#0F0E17' }}
     >
+      {/* Background image — blurred and softened so it blends into the page */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/Front_Page/Imagen_fondo_frontpage.webp')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'blur(48px)',
+          transform: 'scale(1.15)',
+          opacity: 0.4,
+        }}
+      />
+      {/* White wash to unify the image with the rest of the page */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'rgba(255,255,255,0.10)',
+          mixBlendMode: 'overlay',
+        }}
+      />
+
       {/* Multi-layer ambient gradient */}
       <div
         className="absolute inset-0 pointer-events-none"
