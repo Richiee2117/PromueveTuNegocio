@@ -1,8 +1,107 @@
-import { useState, useCallback } from 'react'
-import { Printer, Layers, Scissors, Sparkles, Heart } from 'lucide-react'
+import { useState, useCallback, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import { Printer, Layers, Scissors, Sparkles, Heart, Info, X } from 'lucide-react'
 import { useScrollRevealChildren } from '../hooks/useScrollReveal'
 import { CATALOG } from '../data/catalog'
 import CategoryGallery from './CategoryGallery'
+
+function InfoModal({ service, onClose }) {
+  useEffect(() => {
+    if (!service) return
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const handleKey = (e) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.body.style.overflow = prev
+      document.removeEventListener('keydown', handleKey)
+    }
+  }, [service, onClose])
+
+  if (!service) return null
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center p-0 sm:p-5"
+      style={{ fontFamily: 'var(--font-sans)' }}
+    >
+      {/* Backdrop */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'rgba(12,12,18,0.78)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+        }}
+        onClick={onClose}
+      />
+
+      {/* Panel */}
+      <div
+        className="relative w-full sm:max-w-lg flex flex-col overflow-hidden bg-white rounded-t-[28px] sm:rounded-[28px]"
+        style={{
+          maxHeight: '85dvh',
+          boxShadow: '0 40px 100px -20px rgba(0,0,0,0.45)',
+        }}
+      >
+        {/* Drag handle — mobile only */}
+        <div className="sm:hidden flex justify-center pt-3 pb-1 shrink-0">
+          <div className="w-9 h-1 rounded-full" style={{ background: 'rgba(0,0,0,0.18)' }} />
+        </div>
+
+        {/* Header */}
+        <div
+          className="flex items-center gap-4 px-5 sm:px-7 py-5 shrink-0"
+          style={{
+            background: service.bg,
+            borderBottom: `1px solid ${service.accent}28`,
+          }}
+        >
+          <div
+            className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0"
+            style={{ background: service.accent + '22' }}
+          >
+            <Info size={20} style={{ color: service.accent }} strokeWidth={1.75} />
+          </div>
+
+          <div className="flex-1 min-w-0">
+            <p
+              className="font-black uppercase"
+              style={{ fontSize: '0.625rem', letterSpacing: '0.14em', color: service.accent }}
+            >
+              Acerca de este servicio
+            </p>
+            <h2
+              className="font-black text-lg sm:text-xl leading-tight"
+              style={{ color: 'var(--color-ink)', letterSpacing: '-0.01em' }}
+            >
+              {service.title}
+            </h2>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-150"
+            style={{ background: 'rgba(0,0,0,0.07)', color: 'var(--color-ink-2)' }}
+            onMouseEnter={e => e.currentTarget.style.background = 'rgba(0,0,0,0.13)'}
+            onMouseLeave={e => e.currentTarget.style.background = 'rgba(0,0,0,0.07)'}
+            aria-label="Cerrar"
+          >
+            <X size={16} />
+          </button>
+        </div>
+
+        {/* Description */}
+        <div className="flex-1 overflow-y-auto px-5 sm:px-7 py-6">
+          <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'var(--color-ink-2)' }}>
+            {service.description}
+          </p>
+        </div>
+      </div>
+    </div>,
+    document.body
+  )
+}
 
 const ICON_MAP = {
   dtf:        Printer,
@@ -20,14 +119,14 @@ const SPAN_MAP = {
   costuras:   '',
 }
 
-function ServiceCard({ service, index, onOpen }) {
+function ServiceCard({ service, index, onOpen, onInfo }) {
   const Icon = ICON_MAP[service.id] || Printer
   const span = SPAN_MAP[service.id] || ''
 
   return (
     <button
       onClick={() => onOpen(service)}
-      className={`reveal reveal-delay-${Math.min(index + 1, 5)} group text-left w-full rounded-3xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${span}`}
+      className={`reveal reveal-delay-${Math.min(index + 1, 5)} group relative text-left w-full rounded-3xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${span}`}
       style={{
         background: service.bg,
         border: '1px solid rgba(0,0,0,0.05)',
@@ -41,6 +140,26 @@ function ServiceCard({ service, index, onOpen }) {
         e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.04)'
       }}
     >
+      <span
+        role="button"
+        tabIndex={0}
+        onClick={(e) => { e.stopPropagation(); onInfo(service) }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            e.stopPropagation()
+            onInfo(service)
+          }
+        }}
+        className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-150 z-10"
+        style={{ background: 'rgba(255,255,255,0.6)', color: service.accent }}
+        onMouseEnter={e => e.currentTarget.style.background = '#fff'}
+        onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.6)'}
+        aria-label={`Más información sobre ${service.title}`}
+      >
+        <Info size={16} strokeWidth={2} />
+      </span>
+
       <div
         className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
         style={{ background: service.accent + '18' }}
@@ -80,7 +199,9 @@ function ServiceCard({ service, index, onOpen }) {
 export default function ServicesGrid() {
   const gridRef = useScrollRevealChildren()
   const [openCategory, setOpenCategory] = useState(null)
+  const [infoCategory, setInfoCategory] = useState(null)
   const handleClose = useCallback(() => setOpenCategory(null), [])
+  const handleInfoClose = useCallback(() => setInfoCategory(null), [])
 
   return (
     <>
@@ -125,6 +246,7 @@ export default function ServicesGrid() {
                 service={service}
                 index={i}
                 onOpen={setOpenCategory}
+                onInfo={setInfoCategory}
               />
             ))}
           </div>
@@ -132,6 +254,7 @@ export default function ServicesGrid() {
       </section>
 
       <CategoryGallery category={openCategory} onClose={handleClose} />
+      <InfoModal service={infoCategory} onClose={handleInfoClose} />
     </>
   )
 }

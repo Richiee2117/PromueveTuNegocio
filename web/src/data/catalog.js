@@ -3,6 +3,7 @@ export const CATALOG = [
     id: 'dtf',
     title: 'DTF Textil y UV',
     tagline: 'Impresión directa a la prenda con tecnología DTF de alta resolución',
+    description: 'Llevamos tus diseños al siguiente nivel con nuestra avanzada tecnología de impresión DTF Textil y UV. Ya sea para personalizar prendas o artículos promocionales, logramos acabados de altísima resolución, colores vibrantes y una durabilidad excepcional sin importar la complejidad o la cantidad de colores de tu diseño. Utilizamos métodos de impresión directa que garantizan un tacto suave y flexible en textiles, así como una adherencia perfecta en superficies rígidas. Desde playeras, gorras y sudaderas, hasta tazas, termos y mochilas, te ofrecemos la máxima versatilidad para que tu marca destaque con calidad premium. Nuestro equipo te asesora para asegurar que cada detalle visual luzca impecable en cualquier formato.',
     accent: '#F97316',
     bg: '#FFF7ED',
     items: [
@@ -31,6 +32,7 @@ export const CATALOG = [
     id: 'serigrafia',
     title: 'Serigrafía',
     tagline: 'Impresión con tintas de alta durabilidad, ideal para grandes volúmenes',
+    description: 'Multiplica el impacto de tu marca de manera eficiente con nuestro servicio de Serigrafía profesional. Ideal para grandes volúmenes, esta técnica garantiza colores sólidos, vibrantes y de extrema durabilidad que resisten el paso del tiempo y las lavadas continuas. Es la solución perfecta para campañas publicitarias, dotación de uniformes corporativos o mercancía promocional de alto impacto. Trabajamos sobre una amplia variedad de textiles como playeras, polos, sudaderas, gorras y bolsas, asegurando que tu identidad visual se reproduzca con total fidelidad y nitidez. Te acompañamos en la selección de las mejores prendas y tintas para que tu inversión se traduzca en una imagen corporativa fuerte y perdurable.',
     accent: '#3B82F6',
     bg: '#EFF6FF',
     items: [
@@ -46,6 +48,7 @@ export const CATALOG = [
     id: 'bordado',
     title: 'Bordado',
     tagline: 'Todo en bordados: uniformes, gorras y artículos corporativos premium',
+    description: 'Transformamos prendas comunes en poderosas herramientas de identidad visual con nuestro servicio de Estampados y Bordados Personalizados. Ya sea para uniformes, promociones, eventos o regalos corporativos, plasmamos tu logotipo, mensaje o diseño con alta precisión y calidad. Utilizamos técnicas profesionales y materiales duraderos que garantizan acabados vibrantes, resistentes y que representan fielmente tu marca. Desde camisetas, gorras y sudaderas hasta mochilas o textiles especiales, ofrecemos opciones tanto en serigrafía como en bordado para adaptarnos al estilo y propósito de cada cliente. Además, te asesoramos en todo el proceso para que tu imagen destaque con originalidad y profesionalismo. Haz que tu marca se vista con estilo y deje huella en cada detalle.',
     accent: '#EC4899',
     bg: '#FDF2F8',
     items: [
@@ -63,6 +66,7 @@ export const CATALOG = [
     id: 'sublimacion',
     title: 'Sublimación',
     tagline: 'Colores vivos y permanentes en toda la superficie del artículo',
+    description: 'Transforma artículos en un lienzo sin límites con nuestro servicio de Sublimación. Esta técnica permite la transferencia de imágenes a todo color con calidad fotográfica, logrando que el diseño se fusione directamente con el material para ofrecer colores vivos, permanentes y totalmente imperceptibles al tacto. Es ideal para crear productos únicos que no se decoloran ni se agrietan con el uso. Contamos con una extensa gama de opciones que van desde tazas, termos y almohadas, hasta prendas de vestir y publicidad exterior como banderas y Sky Dancers. Te brindamos soluciones a medida para que el mensaje de tu negocio cobre vida con un brillo inigualable en toda la superficie del artículo.',
     accent: '#8B5CF6',
     bg: '#F5F3FF',
     items: [
@@ -84,6 +88,7 @@ export const CATALOG = [
     id: 'costuras',
     title: 'Costuras para Guarderías',
     tagline: 'Prendas especializadas y uniformes para guarderías infantiles',
+    description: 'Brindamos comodidad, higiene y ternura con nuestra línea especializada de Costuras para Guarderías. Sabemos que el cuidado de los más pequeños exige los más altos estándares, por lo que confeccionamos prendas y artículos con materiales suaves, seguros y altamente resistentes al uso diario y a los lavados frecuentes. Desde filipinas y gorros para el personal médico y de cuidado, hasta sábanas para cuneros y forros portabebés, cada pieza está diseñada pensando en la practicidad y el confort. Además, personalizamos cada artículo con la identidad de tu institución, garantizando una imagen profesional, pulcra y cálida que transmitirá total confianza a los padres de familia.',
     accent: '#10B981',
     bg: '#ECFDF5',
     items: [
