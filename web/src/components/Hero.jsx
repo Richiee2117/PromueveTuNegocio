@@ -133,13 +133,13 @@ export default function Hero() {
               Haz que tu negocio{' '}
               <span style={{ color: 'var(--color-brand)' }}>destaque</span>
               <br />
-              <span style={{ color: 'rgba(255,255,255,0.42)' }}>físicamente</span>
+              <span style={{ color: 'rgba(255,255,255,0.68)' }}>físicamente</span>
             </h1>
 
             {/* Body */}
             <p
-              className="text-lg leading-relaxed mb-10"
-              style={{ color: 'rgba(255,255,255,0.52)', maxWidth: '52ch' }}
+              className="text-lg leading-relaxed mb-10 font-medium"
+              style={{ color: 'rgba(255,255,255,0.72)', maxWidth: '52ch' }}
             >
               DTF, sublimación, serigrafía, bordado y costuras a medida.
               Todo para llevar tu marca a la calle.
