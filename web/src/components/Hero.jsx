@@ -105,12 +105,19 @@ export default function Hero() {
           {/* Left: text */}
           <div ref={textRef} className="reveal max-w-3xl">
             {/* Eyebrow */}
-            <div
-              className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-8"
+            <a
+              href="https://maps.app.goo.gl/i4s44fKAo2QuKb9t7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-8 transition-colors duration-200"
               style={{
                 background: 'rgba(249,115,22,0.12)',
                 border: '1px solid rgba(249,115,22,0.28)',
               }}
+              onMouseEnter={e => e.currentTarget.style.background = 'rgba(249,115,22,0.2)'}
+              onMouseLeave={e => e.currentTarget.style.background = 'rgba(249,115,22,0.12)'}
+              aria-label="Ver ubicación en Google Maps"
+              title="Ver ubicación en Google Maps"
             >
               <MapPin size={12} style={{ color: 'var(--color-brand)' }} />
               <span
@@ -119,7 +126,7 @@ export default function Hero() {
               >
                 Hermosillo, Sonora
               </span>
-            </div>
+            </a>
 
             {/* Headline */}
             <h1
@@ -179,18 +186,21 @@ export default function Hero() {
                 style={{
                   fontSize: '0.9375rem',
                   padding: '14px 24px',
-                  color: 'rgba(255,255,255,0.65)',
-                  border: '1px solid rgba(255,255,255,0.14)',
+                  color: 'rgba(255,255,255,0.85)',
+                  background: 'rgba(15,14,23,0.45)',
+                  backdropFilter: 'blur(8px)',
+                  WebkitBackdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255,255,255,0.18)',
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.color = '#fff'
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.28)'
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.07)'
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.32)'
+                  e.currentTarget.style.background = 'rgba(15,14,23,0.65)'
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.color = 'rgba(255,255,255,0.65)'
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)'
-                  e.currentTarget.style.background = 'transparent'
+                  e.currentTarget.style.color = 'rgba(255,255,255,0.85)'
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.18)'
+                  e.currentTarget.style.background = 'rgba(15,14,23,0.45)'
                 }}
               >
                 Ver Catálogo
